@@ -6,8 +6,6 @@ import { AmplifyTheme, Localei18n } from './components'
 import awsconfig from '../aws-exports'
 //import { Auth } from 'aws-amplify'
 import { SCREEN_MAPS } from './routes'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
 
 
 Amplify.configure({
@@ -56,12 +54,13 @@ const handleAuthStateChange = state => {
       .catch(err => console.log(err));*/
 
    // login({ variables: { input: true, username: currentAuth.username } });
-    navigation.navigate(SCREEN_MAPS);
+   console.log(state);
+   
+    navigation.navigate(SCREEN_MAPS)();
       
   }
 }
 
-const Stack = createStackNavigator();
 
 const App = () => {
   return (
@@ -75,8 +74,6 @@ const App = () => {
         signUpConfig={signUpConfig} 
         theme={AmplifyTheme} />
     </>
-
-
   )
 }
 
