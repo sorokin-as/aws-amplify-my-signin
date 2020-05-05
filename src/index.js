@@ -1,9 +1,13 @@
 import React from 'react'
-import { StatusBar } from 'react-native'
+import { StatusBar, View, Text } from 'react-native'
 import Amplify from '@aws-amplify/core'
 import { Authenticator } from 'aws-amplify-react-native'
 import { AmplifyTheme, Localei18n } from './components'
 import awsconfig from '../aws-exports'
+//import { Auth } from 'aws-amplify'
+import { SCREEN_MAPS } from './routes'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
 
 Amplify.configure({
@@ -44,10 +48,20 @@ const signUpConfig = {
 
 const handleAuthStateChange = state => {
   if (state === 'signedIn') {
-    /* Do something when the user has signed-in */
+    /* Do something when the user has signed-in 
+    //const currentAuth = await Auth.currentAuthenticatedUser();
+    Auth.currentAuthenticatedUser({
+      bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+    }).then(user => console.log(user))
+      .catch(err => console.log(err));*/
+
+   // login({ variables: { input: true, username: currentAuth.username } });
+    navigation.navigate(SCREEN_MAPS);
+      
   }
 }
 
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
@@ -61,6 +75,8 @@ const App = () => {
         signUpConfig={signUpConfig} 
         theme={AmplifyTheme} />
     </>
+
+
   )
 }
 
