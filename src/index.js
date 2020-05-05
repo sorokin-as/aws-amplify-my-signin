@@ -40,7 +40,9 @@ const signUpConfig = {
   ],
 }
 
-handleAuthStateChange(state) {
+// функция была обьявлена как метод класса, поправил немного
+
+const handleAuthStateChange = state => {
   if (state === 'signedIn') {
     /* Do something when the user has signed-in */
   }
@@ -54,7 +56,7 @@ const App = () => {
       <Localei18n />
       <Authenticator 
         hideDefault={true} 
-        onStateChange={this.handleAuthStateChange}
+        onStateChange={handleAuthStateChange} // this. - этого в стрелочных нет
         usernameAttributes="email" 
         signUpConfig={signUpConfig} 
         theme={AmplifyTheme} />
