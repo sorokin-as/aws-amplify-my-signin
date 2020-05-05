@@ -1,1 +1,0 @@
-export const SCREEN_MAPS = 'SCREEN_MAPS'

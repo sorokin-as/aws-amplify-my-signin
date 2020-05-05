@@ -5,7 +5,6 @@ import { Authenticator } from 'aws-amplify-react-native'
 import { AmplifyTheme, Localei18n } from './components'
 import awsconfig from '../aws-exports'
 //import { Auth } from 'aws-amplify'
-import { SCREEN_MAPS } from './routes'
 
 
 Amplify.configure({
@@ -56,7 +55,7 @@ const handleAuthStateChange = state => {
    // login({ variables: { input: true, username: currentAuth.username } });
    console.log(state);
    
-    navigation.navigate(SCREEN_MAPS)();
+    navigation.navigate(ScreenMaps)
       
   }
 }
