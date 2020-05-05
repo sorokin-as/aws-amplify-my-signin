@@ -2,6 +2,7 @@ import * as React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { ScreenMaps } from './components/ScreenMaps'
 
+
 const Stack = createStackNavigator()
 
 const AppNavigator = () => {

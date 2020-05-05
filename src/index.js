@@ -4,7 +4,10 @@ import Amplify from '@aws-amplify/core'
 import { Authenticator } from 'aws-amplify-react-native'
 import { AmplifyTheme, Localei18n } from './components'
 import awsconfig from '../aws-exports'
+import AppNavigator from './AppNavigator'
+
 //import { Auth } from 'aws-amplify'
+
 
 
 Amplify.configure({

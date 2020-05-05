@@ -14,7 +14,7 @@ class ScreenMaps extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff'
+        backgroundColor: '#000'
     },
     sub: {
         flex: 1,
