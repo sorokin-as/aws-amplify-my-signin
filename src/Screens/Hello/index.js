@@ -44,31 +44,31 @@ const signUpConfig = {
 
 // функция была обьявлена как метод класса, поправил немного
 
-const handleAuthStateChange = state => {
-    if (state === 'signedIn') {
-        /* Do something when the user has signed-in */
-       // const currentAuth = await Auth.currentAuthenticatedUser();
 
-       // login({ variables: { input: true, username: currentAuth.username } });
 
-      // console.log(state);
-       
-       // navigation.navigate(ScreenAuth)
-        navigation.navigate(ScreenAuth, {
-            itemId: 86,
-            otherParam: 'anything you want here',
-        })
-    }
-}
 
 
 const Hello = ({ navigation }) => {
+   const handleAuthStateChange = state => {
+        if (state === 'signedIn') {
+            /* Do something when the user has signed-in */
+            // const currentAuth = await Auth.currentAuthenticatedUser();
+
+            // login({ variables: { input: true, username: currentAuth.username } });
+
+           // console.log(state);
+
+           // navigation.navigate(Maps)()
+            navigation.navigate('Maps')()
+        }
+    }
+
     return (
         <>
             <StatusBar barStyle="dark-content" />
             <Localei18n />
             <Authenticator
-                hideDefault={true}
+               // hideDefault={true}
                 onStateChange={handleAuthStateChange}
                 usernameAttributes="email"
                 signUpConfig={signUpConfig}
