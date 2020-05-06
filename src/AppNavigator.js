@@ -1,21 +1,18 @@
-import * as React from 'react'
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { ScreenMaps } from './components/ScreenMaps'
+import { Hello, ScreenAuth } from './Screens'
 
+const Stack = createStackNavigator();
 
-const Stack = createStackNavigator()
-
-const AppNavigator = () => {
+function App() {
     return (
-        <Stack.Navigator
-            screenOptions={{ 
-                headerShown: false
-            }}
-            initialRouteName="ScreenMaps"
-        >
-            <Stack.Screen name="ScreenMaps" component={ScreenMaps} />
-        </Stack.Navigator>
-    )
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name="Hello" component={Hello} />
+                <Stack.Screen name="ScreenAuth" component={ScreenAuth} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
-
-export default AppNavigator
+export default App;
