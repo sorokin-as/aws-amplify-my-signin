@@ -8,11 +8,11 @@ const Stack = createStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
+            <Stack.Navigator initialRouteName="Hello">
                 <Stack.Screen name="Hello" component={Hello} />
                 <Stack.Screen name="ScreenAuth" component={ScreenAuth} />
             </Stack.Navigator>
         </NavigationContainer>
-    );
+    )
 }
 export default App;

@@ -4,9 +4,8 @@ import Amplify from '@aws-amplify/core'
 import { Authenticator } from 'aws-amplify-react-native'
 import { AmplifyTheme, Localei18n } from '../../components'
 import awsconfig from './../../../aws-exports'
-
-//import { Auth } from 'aws-amplify'
-
+import { Auth } from "aws-amplify"
+import ScreenAuth from './../../Screens'
 
 
 Amplify.configure({
@@ -48,21 +47,17 @@ const signUpConfig = {
 const handleAuthStateChange = state => {
     if (state === 'signedIn') {
         /* Do something when the user has signed-in */
-        //const currentAuth = await Auth.currentAuthenticatedUser();
-        /* Auth.currentAuthenticatedUser({
-           bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-         }).then(user => console.log(user))
-           .catch(err => console.log(err));*/
+       // const currentAuth = await Auth.currentAuthenticatedUser();
 
-        // login({ variables: { input: true, username: currentAuth.username } });
-        //console.log(state);
+       // login({ variables: { input: true, username: currentAuth.username } });
 
-        //navigation.navigate('ScreenAuth')
-        navigation.navigate('ScreenAuth', {
+      // console.log(state);
+       
+       // navigation.navigate(ScreenAuth)
+        navigation.navigate(ScreenAuth, {
             itemId: 86,
             otherParam: 'anything you want here',
         })
-
     }
 }
 
@@ -73,8 +68,8 @@ const Hello = ({ navigation }) => {
             <StatusBar barStyle="dark-content" />
             <Localei18n />
             <Authenticator
-               // hideDefault={true}  ЗНЯТЬ с этих строчку коммент
-              //  onStateChange={handleAuthStateChange} // this. - этого в стрелочных нет
+                hideDefault={true}
+                onStateChange={handleAuthStateChange}
                 usernameAttributes="email"
                 signUpConfig={signUpConfig}
                 theme={AmplifyTheme} />
@@ -84,8 +79,3 @@ const Hello = ({ navigation }) => {
 
 
 export { Hello }
-
-
-
-
-
